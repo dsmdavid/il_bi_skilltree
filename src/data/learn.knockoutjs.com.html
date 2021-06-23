@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://learn.knockoutjs.com/#/?tutorial=intro -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>learn.knockoutjs.com</title>
+    
+<link href="./learn.knockoutjs.com_files/App_0cd0c5999a0953597d1f0e42189bd620eaec2668" type="text/css" rel="stylesheet">
+
+    <!--[if IE 8]><link rel="Stylesheet" href="/Content/BrowserSpecific/site.ie_lte_8.css" /><![endif]-->
+</head>
+    <body data-new-gr-c-s-check-loaded="14.1015.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="14.1015.0">
+        
+<div id="topPane">
+    <div id="topPaneLinks">
+        <a href="http://learn.knockoutjs.com/#" data-bind="click: showHelp">help</a>
+        <a href="http://knockoutjs.com/">main site</a>
+    </div>
+    <div id="mainTitle">learn.knockoutjs.com</div>
+    <div class="centerContainer">
+        <div id="tutorialPickerDropdown" class="smoothButton" data-bind="click: chooseTutorial">
+            <span class="downArrow"></span>
+            Tutorial: <span class="tutorialName" data-bind="text: currentTutorial() &amp;&amp; currentTutorial().Title || &#39;Choose...&#39;">Introduction</span>
+        </div>
+    </div>
+</div>
+<div id="bodyPane" class="showShadows" data-bind="fillRemainingHeight: { after: &#39;#topPane&#39; }, css: { showShadows: !isAnimating(), hidden: false }" style="height: 661px;">
+    <div id="dragShield"></div>
+    <div class="leftCol" style="float: left; height: 100%; overflow-y: hidden; width: 43.3528%;">
+        <div class="helpCaption top" data-bind="fadeVisible: firstRunOverlay.isVisible" style="display: none; opacity: 0;"><label>1. Read the tutorial instructions here</label></div>
+        <div class="helpCaption bottom" data-bind="fadeVisible: firstRunOverlay.isVisible" style="display: none; opacity: 0;"><label>4. Run your code here</label></div>
+        <div class="leftColTop pane tutorial" style="overflow-y: hidden; height: 49.1014%;">
+            <div class="paneHeader">
+                <div class="tutorialNavigation" data-bind="&#39;if&#39;: currentTutorialStep">
+                    <button class="rightAbsolute" data-bind="enable: canMoveNext, click: moveNext"><div class="arrowRight"></div></button>
+                    <button class="leftAbsolute" data-bind="enable: canMoveBack, click: moveBack" disabled=""><div class="arrowLeft"></div></button>
+                    <div class="centerAbsolute">
+                        Step <span data-bind="text: currentTutorialStepIndex() + 1">1</span> 
+                        of <span data-bind="text: currentTutorial().Steps.length">5</span>                    
+                    </div>
+                </div>
+            </div>
+            <div class="paneBody" data-bind="verticalScroll: tutorialScrollPos" style="overflow: auto; height: 276px;">                
+                <div class="tutorialStep" data-bind="visible: currentTutorialStep" style="">
+                    <div data-bind="markdown: currentTutorialStep() &amp;&amp; currentTutorialStep().Instructions"><h2>Welcome!</h2>
+
+<p>In this first tutorial you'll experience some of the basics of building a web UI with the <em>Model-View-ViewModel</em> (MVVM) pattern using knockout.js. </p>
+
+<p>You'll learn how to define a UI's appearance using <strong>views</strong> and <strong>declarative bindings</strong>, its data and behavior using <strong>viewmodels</strong> and <strong>observables</strong>, 
+and how everything stays in sync automatically thanks to Knockout's <strong>dependency tracking</strong> (even with arbitrary cascading chains of data).</p>
+
+<h3>Using bindings in the view</h3>
+
+<p>In the bottom-right corner, you've got a <em>viewmodel</em> containing data about a person. In the top-right corner, you've got a <em>view</em> that's supposed to display the
+person data. Right now it just displays "<em>todo</em>", so let's fix that.</p>
+
+<p>Modify the two <code>&lt;strong&gt;</code> elements in the view, adding <code>data-bind</code> attributes to display the person's name:</p>
+
+<pre><code class="xml" data-result="[object Object]" data-second_best="[object Object]"><span class="tag">&lt;<span class="title">p</span>&gt;</span>First name: <span class="tag">&lt;<span class="title">strong</span> <span class="highlight"><span class="attribute">data-bind</span>=<span class="value">"text: firstName"</span></span>&gt;</span><span class="tag">&lt;/<span class="title">strong</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;<span class="title">p</span>&gt;</span>Last name: <span class="tag">&lt;<span class="title">strong</span> <span class="highlight"><span class="attribute">data-bind</span>=<span class="value">"text: lastName"</span></span>&gt;</span><span class="tag">&lt;/<span class="title">strong</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</code></pre>
+
+<p><code>data-bind</code> attributes are how Knockout lets you declaratively associate viewmodel properties with DOM elements. You just used the <code>text</code> binding to assign text to
+your DOM elements.</p>
+
+<h3>Running the code</h3>
+
+<p>To run your updated application, click <em>Run</em> in the bottom-left pane, or press Ctrl+Enter. The result? Your UI should display the person's name. 
+OK, this is just <em>Hello World</em> - we'll move on to more exciting things shortly. </p>
+
+<p>If everything is working fine, click <em>Continue</em> below.</p>
+
+<p><strong>Having trouble?</strong>
+If at any time you find it unclear how to proceed, and your code isn't behaving as the tutorial describes, you can always click the <em>"Help, it's not working!"</em> button
+(below). This will replace your code with a working copy.</p></div>
+                    <a class="wideButton top" data-bind="click: fixCode, visible: canFixCode" style="">Help – it's not working!</a>
+                    <a class="wideButton bottom" data-bind="click: moveNext, visible: canMoveNext, css: { top: !canFixCode() }" style=""><span class="moveRight"></span>Continue</a>
+                    <a class="wideButton bottom" data-bind="click: chooseTutorial, visible: !canMoveNext(), css: { top: !canFixCode() }" style="display: none;"><span class="moveRight"></span>Choose another tutorial</a>
+                </div>
+            </div>
+        </div>
+        <div data-bind="splitter: { orientation: &#39;horizontal&#39;, model: leftColumnSplitterViewModel, 
+                                    pane1Scrolls: false, pane2Scrolls: false, percentageSpaceToUse: 99, showDuringDrag: &#39;#dragShield&#39; }" class="handle horizontal ui-draggable" style="height: 1.79728%;"></div>
+        <div class="leftColBottom pane" style="overflow-y: hidden; height: 48.1014%;">
+            <!-- Code runner -->
+            <div class="paneHeader codeRunnerControls">
+                <div class="rightAbsolute">
+                    <button class="smoothButton runCode" data-bind="click: runCode, enable: codeRunnerViewModel.canRunCode">
+                        <div>
+                            <span class="play" data-bind="css: { spinner: codeRunnerViewModel.showSpinner }"></span>
+                            <strong>Run</strong> <small>(Ctrl+Enter)</small>
+                        </div>
+                    </button>
+                </div>
+                <div class="leftAbsolute">Output</div>
+                <div class="centerAbsolute addressBar" data-bind="visible: currentTutorial() &amp;&amp; currentTutorial().ShowAddressBar" style="display: none;">
+                    <label>URL hash:</label>
+                    <input data-bind="value: codeRunnerViewModel.urlToDisplay" disabled="disabled">
+                </div>
+            </div>
+            <div class="paneBody" style="height: 285px;">                
+                <iframe class="codeRunnerFrame" frameborder="0" data-bind="navigateIframeTo: codeRunnerViewModel.runnablePageUrl" src="./learn.knockoutjs.com_files/saved_resource.html"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="centralSplitter handle vertical ui-draggable" data-bind="splitter: { orientation: &#39;vertical&#39;, model: centralSplitterViewModel, showDuringDrag: &#39;#dragShield&#39; }" style="float: left; height: 100%; width: 0.2589%;"></div>
+    <div class="rightCol" style="float: left; height: 100%; overflow-y: hidden; width: 55.8706%;">
+        <div class="helpCaption top" data-bind="fadeVisible: firstRunOverlay.isVisible" style="display: none; opacity: 0;"><label>2. Enter your view code here</label></div>
+        <div class="helpCaption bottom" data-bind="fadeVisible: firstRunOverlay.isVisible" style="display: none; opacity: 0;"><label>3. Enter your viewmodel code here</label></div>
+        <div class="rightColTop pane" data-bind="codeEditor: htmlPaneViewModel" style="overflow-y: auto; height: 39.1014%;"><label class="hidden overlayCaption" data-bind="overlayCaption: { attachTo: &#39;.rightColTop&#39; }, fadeVisible: { condition: !htmlPaneViewModel.hasFocusOrMouseOver(), speed: 500 }" style="display: none; opacity: 0;"><strong>View</strong> (HTML)</label><div class="CodeMirror-wrapping" style="width: 100%; height: 100%;"><textarea tabindex="100000" style="position: absolute; left: -10000px; width: 10px;"></textarea><iframe frameborder="0" src="javascript:;" style="border: 0px; width: 100%; height: 100%; display: block;" src="./learn.knockoutjs.com_files/saved_resource(1).html"></iframe></div></div>
+        <div data-bind="splitter: { orientation: &#39;horizontal&#39;, model: rightColumnSplitterViewModel, 
+                                    pane1Scrolls: true, pane2Scrolls: true, percentageSpaceToUse: 99, showDuringDrag: &#39;#dragShield&#39; }" class="handle horizontal ui-draggable" style="height: 1.79728%;"></div>
+        <div class="rightColBottom pane" data-bind="codeEditor: jsPaneViewModel" style="overflow-y: auto; height: 58.1014%;"><label class="hidden overlayCaption" data-bind="overlayCaption: { attachTo: &#39;.rightColBottom&#39; }, fadeVisible: { condition: !jsPaneViewModel.hasFocusOrMouseOver(), speed: 500 }" style="display: block; opacity: 1;"><strong>View Model</strong> (JavaScript)</label><div class="CodeMirror-wrapping" style="width: 100%; height: 100%;"><textarea tabindex="100000" style="position: absolute; left: -10000px; width: 10px;"></textarea><iframe frameborder="0" src="javascript:;" style="border: 0px; width: 100%; height: 100%; display: block;" src="./learn.knockoutjs.com_files/saved_resource(2).html"></iframe></div></div>
+    </div>
+</div>
+
+
+
+<div class="overlay" data-bind="overlay: tutorialPicker">
+    <div class="overlayTitle">Choose a tutorial</div>
+    <div class="overlayBody" data-bind="with: tutorialPicker">
+        <ul class="optionsList" data-bind="foreach: tutorialInfos">
+            <li data-bind="click: function() { $parent.selectTutorial(Slug) }, css: { selected: Slug == $parent.selectedTutorialSlug() }" class="selected">
+                <div class="title" data-bind="text: Title">Introduction</div>
+                <div class="description" data-bind="text: Description">Getting started with MVVM and knockout.js</div>
+            </li>
+        
+            <li data-bind="click: function() { $parent.selectTutorial(Slug) }, css: { selected: Slug == $parent.selectedTutorialSlug() }" class="">
+                <div class="title" data-bind="text: Title">Working with Lists and Collections</div>
+                <div class="description" data-bind="text: Description">Building a dynamic UI where elements are added and removed</div>
+            </li>
+        
+            <li data-bind="click: function() { $parent.selectTutorial(Slug) }, css: { selected: Slug == $parent.selectedTutorialSlug() }" class="">
+                <div class="title" data-bind="text: Title">Single page applications</div>
+                <div class="description" data-bind="text: Description">Enabling navigation within the page, with back/forward support</div>
+            </li>
+        
+            <li data-bind="click: function() { $parent.selectTutorial(Slug) }, css: { selected: Slug == $parent.selectedTutorialSlug() }" class="">
+                <div class="title" data-bind="text: Title">Creating custom bindings</div>
+                <div class="description" data-bind="text: Description">Gaining more control over the UI, and integrating with third-party components</div>
+            </li>
+        
+            <li data-bind="click: function() { $parent.selectTutorial(Slug) }, css: { selected: Slug == $parent.selectedTutorialSlug() }" class="">
+                <div class="title" data-bind="text: Title">Loading and saving data</div>
+                <div class="description" data-bind="text: Description">Ways to integrate your client-side code with your server-side code</div>
+            </li>
+        </ul>
+        <a class="wideButton top bottom" data-bind="click: close" data-iebugworkaround="${ isVisible }">Cancel</a>        
+    </div>
+</div>
+
+<div class="overlay" data-bind="overlay: reloadOrResetOverlay">
+    <div class="overlayTitle">Restore previous position?</div>
+    <div class="overlayBody">
+        <p>You've been on <strong data-bind="text: currentTutorial() &amp;&amp; currentTutorial().Title">Introduction</strong> before. Continue where you left off?</p>
+        <div class="horizontalButtonSet50">
+            <a data-bind="click: reloadOrResetOverlay.closeYes" class="wideButton left weak primary"><strong>Yes</strong>, restore my position and code</a>
+            <a data-bind="click: reloadOrResetOverlay.closeNo" class="wideButton right weak"><strong>No</strong>, I want to start over</a>
+        </div>
+    </div>
+</div>
+
+<div class="overlay" data-bind="overlay: fixCodeOverlay">
+    <div class="overlayTitle">Fix the code?</div>
+    <div class="overlayBody">
+        <p>
+            If your code isn't working as the tutorial describes, you can replace it with a working version.
+            <strong>This will overwrite your code entirely.</strong>
+        </p>
+        <div class="horizontalButtonSet50">
+            <a data-bind="click: fixCodeOverlay.closeYes" class="wideButton left weak"><strong>Yes</strong>, fix my code</a>
+            <a data-bind="click: fixCodeOverlay.closeNo" class="wideButton right weak primary"><strong>No</strong>, keep my code as is</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="flashMessage hidden" data-bind="fadeVisible: { condition: shouldShowFlashMessage, speed: 250 }, text: flashMessage" style="display: none; opacity: 0;"></div>
+
+
+
+            <script type="text/javascript" async="" src="./learn.knockoutjs.com_files/ga.js"></script><script type="text/javascript" src="./learn.knockoutjs.com_files/jquery.min.js"></script>
+            <script type="text/javascript" src="./learn.knockoutjs.com_files/jquery-ui.min.js"></script>
+        
+<script src="./learn.knockoutjs.com_files/Lib_98ca704cfa5cf91f9a890466b3a8296f4955e8a4" type="text/javascript"></script>
+<script src="./learn.knockoutjs.com_files/Custom_fd7119530fcbd681adb96504183f85239c4766b4" type="text/javascript"></script>
+
+        
+    <script type="text/javascript">
+        $(function () {
+            var viewModel = new liveLearn.appViewModel({
+                tutorialInfos: [{"Slug":"intro","Title":"Introduction","Description":"Getting started with MVVM and knockout.js"},{"Slug":"collections","Title":"Working with Lists and Collections","Description":"Building a dynamic UI where elements are added and removed"},{"Slug":"webmail","Title":"Single page applications","Description":"Enabling navigation within the page, with back/forward support"},{"Slug":"custombindings","Title":"Creating custom bindings","Description":"Gaining more control over the UI, and integrating with third-party components"},{"Slug":"loadingsaving","Title":"Loading and saving data","Description":"Ways to integrate your client-side code with your server-side code"}],
+                tutorialDataUrl: "/Home/TutorialData",
+                createRunnablePageUrl: "/Home/CreateRunnablePage",
+                fetchRunnablePageUrl: "/Home/RunnablePage",
+                codeRunnerTemplate: "\n\u003c!DOCTYPE html\u003e\n\u003chead\u003e\n    \u003cbase href=\"http://learn.knockoutjs.com/\" /\u003e\n        \u003cscript type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js\"\u003e\u003c/script\u003e\n    \u003cscript type=\u0027text/javascript\u0027 src=\u0027/Scripts/Lib/knockout-3.0.0.js\u0027\u003e\u003c/script\u003e\n    \u003clink rel=\"Stylesheet\" href=\"/Content/App/coderunner.css\" /\u003e\n    {{headtags}}\n\u003c/head\u003e\n\u003chtml\u003e\n    \u003cbody class=\"codeRunner\"\u003e\n        {{html}}\n        \u003cscript type=\u0027text/javascript\u0027\u003e\n            (function () { // Wrap in function to prevent accidental globals\n                if (location.protocol != \"data:\") {\n                    $(window).bind(\u0027hashchange\u0027, function () {\n                        window.parent.handleChildIframeUrlChange(location.hash) \n                    });\n                }\n\n                {{javascript}}\n            })();\n        \u003c/script\u003e\n    \u003c/body\u003e\n\u003c/html\u003e"
+            });
+            ko.applyBindings(viewModel);
+            ko.linkObservableToUrl(viewModel.currentTutorialSlug, "tutorial");           
+
+            // On first load, if no tutorial was given in the URL hash, display help
+            $.address.init(function(data) {
+                if (!data.parameters.tutorial)
+                    setTimeout(viewModel.showHelp, 250);            
+            });
+            
+            $(document).keyup(viewModel.processPossibleShortcutKeys);
+            window.handleChildIframeUrlChange = viewModel.handleChildIframeUrlNotification;
+        });
+    </script>
+
+    
+
+<div class="overlay" data-bind="overlay: firstRunOverlay, overlayTop: &#39;33%&#39;" style="display: none;">
+    <div class="overlayTitle">Welcome!</div>
+    <div class="overlayBody">
+        <div class="textWithIcon">
+            <img src="./learn.knockoutjs.com_files/icon.png">
+            <p><strong>knockout.js</strong> helps you simplify dynamic JavaScript UIs using the Model-View-ViewModel (MVVM) pattern.</p>
+            <p>This website is a set of <strong>interactive coding exercises</strong> to help you quickly learn how to benefit from knockout.js and MVVM.</p>
+        </div>        
+        <p class="clear">To <a href="http://knockoutjs.com/downloads/index.html">download knockout.js</a>, or for <a href="http://knockoutjs.com/documentation/introduction.html">full documentation</a>, see the project's <a href="http://knockoutjs.com/">main site</a>.</p>
+        <a data-bind="click: firstRunOverlay.close, text: currentTutorial() ? &#39;OK&#39; : &#39;OK, take me to the first tutorial!&#39;" class="wideButton primary top bottom">OK</a>
+    </div>
+</div></body></html>

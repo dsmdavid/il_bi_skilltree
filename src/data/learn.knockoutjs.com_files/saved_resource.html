@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- saved from url=(2190)data:text/html;charset=utf-8,%0A%3C!DOCTYPE%20html%3E%0A%3Chead%3E%0A%20%20%20%20%3Cbase%20href%3D%22http%3A%2F%2Flearn.knockoutjs.com%2F%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%3Cscript%20type%3D%22text%2Fjavascript%22%20src%3D%22http%3A%2F%2Fajax.googleapis.com%2Fajax%2Flibs%2Fjquery%2F1.7.1%2Fjquery.min.js%22%3E%3C%2Fscript%3E%0A%20%20%20%20%3Cscript%20type%3D'text%2Fjavascript'%20src%3D'%2FScripts%2FLib%2Fknockout-3.0.0.js'%3E%3C%2Fscript%3E%0A%20%20%20%20%3Clink%20rel%3D%22Stylesheet%22%20href%3D%22%2FContent%2FApp%2Fcoderunner.css%22%20%2F%3E%0A%20%20%20%20%0A%3C%2Fhead%3E%0A%3Chtml%3E%0A%20%20%20%20%3Cbody%20class%3D%22codeRunner%22%3E%0A%20%20%20%20%20%20%20%20%3C!-%2D%20This%20is%20a%20*view*%20-%20HTML%20markup%20that%20defines%20the%20appearance%20of%20your%20UI%20-%2D%3E%0A%0A%3Cp%3EFirst%20name%3A%20%3Cstrong%20data-bind%3D%22text%3A%20firstName%22%3Etodo%3C%2Fstrong%3E%3C%2Fp%3E%0A%3Cp%3ELast%20name%3A%20%3Cstrong%3Etodo%3C%2Fstrong%3E%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%3Cscript%20type%3D'text%2Fjavascript'%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20(function%20()%20%7B%20%2F%2F%20Wrap%20in%20function%20to%20prevent%20accidental%20globals%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20(location.protocol%20!%3D%20%22data%3A%22)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24(window).bind('hashchange'%2C%20function%20()%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20window.parent.handleChildIframeUrlChange(location.hash)%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D)%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20This%20is%20a%20simple%20*viewmodel*%20-%20JavaScript%20that%20defines%20the%20data%20and%20behavior%20of%20your%20UI%0Afunction%20AppViewModel()%20%7B%0A%20%20%20%20this.firstName%20%3D%20%22Bert%22%3B%0A%20%20%20%20this.lastName%20%3D%20%22Bertington%22%3B%0A%7D%0A%0A%2F%2F%20Activates%20knockout.js%0Ako.applyBindings(new%20AppViewModel())%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D)()%3B%0A%20%20%20%20%20%20%20%20%3C%2Fscript%3E%0A%20%20%20%20%3C%2Fbody%3E%0A%3C%2Fhtml%3E -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--<base href="http://learn.knockoutjs.com/">--><base href=".">
+        <script type="text/javascript" src="./jquery.min.js"></script>
+    <script type="text/javascript" src="./knockout-3.0.0.js"></script>
+    <link rel="Stylesheet" href="./coderunner.css">
+    
+</head>
+
+    <body class="codeRunner">
+        <!-- This is a *view* - HTML markup that defines the appearance of your UI -->
+
+<p>First name: <strong data-bind="text: firstName">Bert</strong></p>
+<p>Last name: <strong>todo</strong></p>
+        <script type="text/javascript">
+            (function () { // Wrap in function to prevent accidental globals
+                if (location.protocol != "data:") {
+                    $(window).bind('hashchange', function () {
+                        window.parent.handleChildIframeUrlChange(location.hash) 
+                    });
+                }
+
+                // This is a simple *viewmodel* - JavaScript that defines the data and behavior of your UI
+function AppViewModel() {
+    this.firstName = "Bert";
+    this.lastName = "Bertington";
+}
+
+// Activates knockout.js
+ko.applyBindings(new AppViewModel());
+            })();
+        </script>
+    
+</body></html>
